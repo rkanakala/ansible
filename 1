@@ -1,0 +1,22 @@
+#Test for loops for a list
+#- name: Demo on Loops
+#  hosts: all
+#  tasks: 
+#    - name: Demo on loop
+      #debug: 
+       #msg: " {{ item }} "
+
+- name: Demon on loops for a dictionary 
+  hosts: all
+  vars:
+    marks:
+      - name: raju
+        score: 80
+      - name: ramu
+        score: 90
+  tasks:
+    - name: Demo on loopi 2
+      debug:
+        msg: "Student Name = {{ item.name }}, Student Score = {{item.score}}"
+      loop: "{{marks}}"
+

@@ -1,0 +1,21 @@
+- name: DEMO FOR vars from play
+  hosts: all
+  vars:
+   URL: play.google.com
+   location:
+       - Hyderabad
+       - Bangalore
+   credentials:
+       raju: raju123
+       ramu: ramu123
+  tasks:
+    - name: Access and print Varable from Play
+      debug:
+        msg: URL = {{URL}} ### IN Ansible you can access a variable
+    - name: Access a list vatiable
+      debug:
+        msg: Location ={{location[1]}}, {{location[0]}}
+    - name: Access a disctionary
+      debug:
+        msg: Password of Raju user is {{credentials.raju}}
+

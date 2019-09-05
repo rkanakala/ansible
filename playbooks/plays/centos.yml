@@ -1,0 +1,3 @@
+- debug: msg="Task1 on CentOS"
+- debug: msg="Task2 on CentOS"
+

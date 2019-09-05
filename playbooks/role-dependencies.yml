@@ -1,0 +1,8 @@
+- name: Role dependencies
+  hosts: all
+  roles:
+    - role: roleA
+    - role: roleB
+      vars:
+        URL2: "role.google.com"
+

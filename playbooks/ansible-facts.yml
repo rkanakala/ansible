@@ -1,0 +1,11 @@
+- name: Print ansible default facts
+  hosts: all
+  tasks:
+    - name: Print OS distribution 
+      debug: 
+        msg: OS Distro = {{ansible_distribution}}
+
+    - name: IP address of remote node
+      debug:
+        msg: IPv4 Address = {{ansible_default_ipv4.address}}
+

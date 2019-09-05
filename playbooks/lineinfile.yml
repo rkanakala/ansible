@@ -1,0 +1,18 @@
+#Adding in a line in the existing file
+- name: Line in file module can add some line to the existing files 
+  hosts: all
+  tasks: 
+    - name: Line in file 
+      lineinfile:
+        path: /tmp/file.txt
+        line: 'Hello New World'
+
+## By default this content will be added to the end of file using lineinfile, But in case if you want to add the content in some custom location then use regex parameter. This all works if file exists..
+- name: Line in file module can add some line to the new files 
+  hosts: all
+  tasks: 
+    - name: Line in file 
+      lineinfile:
+        path: /tmp/file1.txt
+        line: 'Hello New World'
+        create: yes

@@ -1,0 +1,25 @@
+#Test for loops for a list
+- name: Demo on Loops
+  hosts: all
+  tasks: 
+   - name: count to 3
+     debug: 
+       msg: "{{item}}"
+     with_items: #[1, 2, 3]
+       - item1
+       - item 2
+
+- name: Demon on loops for a dictionary 
+  hosts: all
+  vars:
+    marks:
+      - name: raju
+        score: 80
+      - name: ramu
+        score: 90
+  tasks:
+    - name: Demo on loop 
+      debug:
+        msg: "Student Name = {{ item.name }}, Student Score = {{item.score}}"
+      with_items: "{{ marks }}"
+

@@ -1,0 +1,4 @@
+- name: Run Task1 on RoleB
+  debug: msg="Hello from RoleB"
+- name: Print URL 
+  debug: msg="URL = {{URL}}, URL2 = {{URL2}}"

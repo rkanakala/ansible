@@ -1,0 +1,9 @@
+#Copy file to specific destination
+- name: Copy a file from ansible server
+  hosts: all
+  tasks: 
+   - name: Copy a file
+     copy: 
+      src: file.txt
+      dest: /tmp/file.txt
+

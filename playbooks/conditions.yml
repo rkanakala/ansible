@@ -1,0 +1,32 @@
+- name: Demo on conditions
+  hosts: all
+  tasks:
+    - debug:
+        msg: "Hello, CentOS Operating System"
+      when: ansible_distribution == "CentOS"
+
+    - debug:
+        msg: "Hello, Ubuntu Operating System"
+      when: ansible_distribution == "Debian"
+
+- name: Run a task based on another task status 
+  hosts: all
+  tasks:
+    - name: Run a shell command
+      shell: "false" 
+      ignore_errors: yes
+    
+    - debug: msg="Hello"
+
+- name: Conditions for multiple tasks can be done with including a play 
+  hosts: all
+  tasks:
+    - name: Include centos play 
+      include: plays/centos.yml
+      when: ansible_distribution == "CentOS"
+
+    - name: Include ubuntu play
+      include: plays/ubuntu.yml
+      when: ansible_distribution == "Debian"
+  ## Same can be done by including files in roles as well
+

@@ -1,0 +1,11 @@
+- name: find the list of files and directories in a given directory 
+  hosts: all
+  tasks:
+    - name: Find the list of files 
+      find:
+        paths: /home/centos/ansible 
+        file_type: any
+      register: out 
+    
+    - debug: msg={{out}}
+

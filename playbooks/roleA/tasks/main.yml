@@ -1,0 +1,2 @@
+- name: Run Task1 on RoleA
+  debug: msg="Hello from RoleA"

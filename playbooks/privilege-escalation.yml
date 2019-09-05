@@ -1,0 +1,32 @@
+- name: Execute commands with out privilege escalation 
+  hosts: all
+  tasks:
+    - name: 1. ID command output 
+      shell: id
+      register: out 
+
+    - debug: msg="{{out.stdout}}"
+    - debug: msg="***********************"
+
+- name: Execute commands with privilege escalation 
+  hosts: all
+  become: yes
+  tasks:
+    - name: 2. ID command output 
+      shell: id
+      register: out 
+
+    - debug: msg="{{out.stdout}}"
+    - debug: msg="***********************"
+
+- name: Execute commands with privilege escalation but run as different user
+  hosts: all
+  become: yes
+  become_user: test
+  tasks:
+    - name: 3. ID command output 
+      shell: id
+      register: out 
+
+    - debug: msg="{{out.stdout}}"
+

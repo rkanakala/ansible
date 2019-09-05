@@ -1,0 +1,16 @@
+- name: find the list of files and directories in a given directory
+  hosts: all
+  tasks:
+    - name: Find the list of files
+      find:
+        paths: /home/centos/demo
+        file_type: any
+      register: out
+
+    - debug: msg={{out}}
+
+- name: Delete the files from the find module
+      file:
+        path: "{{item.path}}"
+        state: absent
+      with_items: "{{out.files}}"

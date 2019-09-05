@@ -1,0 +1,13 @@
+- name: Demo for task variables
+  hosts: all
+  vars:
+    URL: play.google.com
+  tasks:
+    - name: Print variable URL of play 
+      debug:
+        msg: URL = {{URL}}
+      vars:
+        URL: task.google.com
+
+        ## 1. You can declare variable at tasks 
+        #        ## 2. Task variables having higher precidence than play variables

@@ -1,0 +1,11 @@
+- name : Prompt variables input
+  hosts: all
+  vars_prompt:
+   - name: URL
+     prompt: Enter desired URL
+     private: no
+  tasks:
+   - name: Print URL
+     debug:
+      msg: URL = {{URL}}
+

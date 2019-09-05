@@ -1,0 +1,20 @@
+#Tags can run with -t <name of tyhe tag>
+- name: Tags on tasks
+  hosts: all
+  tasks:
+    - debug: msg="Installing Web Service"
+      tags:
+        - WEB
+    - debug: msg="Starting Web Service"
+      tags:
+        - WEB
+
+    - debug: msg="Installing App Service"
+      tags:
+        - APP
+    - debug: msg="Starting App Service"
+      tags:
+        - APP
+    
+  ## Tags can be made on play level as well
+
